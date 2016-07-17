@@ -40,12 +40,11 @@ class ViewController: UIViewController {
     func displayQuestion() {
         let questionDictionary: [String: AnyObject] = trivia.getRandomQuestion()
         questionField.text = questionDictionary["Question"] as? String
-        let answers = questionDictionary["Options"] as? [String: String]
-        print(answers)
-//        firstAnswerButton.setTitle(answers[0], forState: .Normal)
-//        secondAnswerButton.titleLabel = questionDictionary["Options"][1]
-//        thirdAnswerButton.titleLabel = questionDictionary["Options"][2]
-//        fourthAnswerButton.titleLabel = questionDictionary["Options"][3]
+        let answers = questionDictionary["Options"] as! NSArray
+        firstAnswerButton.setTitle(answers[0] as? String, forState: .Normal)
+        secondAnswerButton.setTitle(answers[1] as? String, forState: .Normal)
+        thirdAnswerButton.setTitle(answers[2] as? String, forState: .Normal)
+        fourthAnswerButton.setTitle(answers[3] as? String, forState: .Normal)
         playAgainButton.hidden = true
     }
     

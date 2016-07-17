@@ -15,14 +15,6 @@ class QuestionModel {
     var questionsAsked = 0
     var correctQuestions = 0
     
-
-//    let QuestionData: [[String : String]] = [
-//        ["Question": "Only female koalas can whistle", "Answer": "False"],
-//        ["Question": "Blue whales are technically whales", "Answer": "True"],
-//        ["Question": "Camels are cannibalistic", "Answer": "False"],
-//        ["Question": "All ducks are birds", "Answer": "True"]
-//    ]
-    
     let QuestionData: [[String : AnyObject]] = [
         ["Question": "How do you say 'Hello' in German?,", "Options": ["Hola", "Hallo", "Hei", "Auf wiedersehen"], "Answer": "2"],
         ["Question": "How do you say 'Goodbye' in French?", "Options": ["Hasta luego!", "De rien", "Au revoir", "Guten abend"], "Answer": "3"],
