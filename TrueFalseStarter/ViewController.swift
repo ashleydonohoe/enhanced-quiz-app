@@ -17,8 +17,10 @@ class ViewController: UIViewController {
     var gameSound: SystemSoundID = 0
     
     @IBOutlet weak var questionField: UILabel!
-    @IBOutlet weak var trueButton: UIButton!
-    @IBOutlet weak var falseButton: UIButton!
+    @IBOutlet weak var firstAnswerButton: UIButton!
+    @IBOutlet weak var secondAnswerButton: UIButton!
+    @IBOutlet weak var thirdAnswerButton: UIButton!
+    @IBOutlet weak var fourthAnswerButton: UIButton!
     @IBOutlet weak var playAgainButton: UIButton!
     
 
@@ -38,19 +40,32 @@ class ViewController: UIViewController {
     func displayQuestion() {
         let questionDictionary: [String: AnyObject] = trivia.getRandomQuestion()
         questionField.text = questionDictionary["Question"] as? String
+        let answers = questionDictionary["Options"] as? [String: String]
+        print(answers)
+//        firstAnswerButton.setTitle(answers[0], forState: .Normal)
+//        secondAnswerButton.titleLabel = questionDictionary["Options"][1]
+//        thirdAnswerButton.titleLabel = questionDictionary["Options"][2]
+//        fourthAnswerButton.titleLabel = questionDictionary["Options"][3]
         playAgainButton.hidden = true
     }
     
+    
     func displayScore() {
         // Hide the answer buttons
-        trueButton.hidden = true
-        falseButton.hidden = true
+        showOrHideAnswerButtons(true)
         
         // Display play again button
         playAgainButton.hidden = false
         
         questionField.text = "Way to go!\nYou got \(trivia.correctQuestions) out of \(trivia.questionsPerRound) correct!"
         
+    }
+    
+    func showOrHideAnswerButtons(shown: Bool) {
+        firstAnswerButton.hidden = shown
+        secondAnswerButton.hidden = shown
+        thirdAnswerButton.hidden = shown
+        fourthAnswerButton.hidden = shown
     }
     
     @IBAction func checkAnswer(sender: UIButton) {
@@ -60,7 +75,7 @@ class ViewController: UIViewController {
         let selectedQuestionDict = trivia.QuestionData[trivia.indexOfSelectedQuestion]
         let correctAnswer = selectedQuestionDict["Answer"] as! String
         
-        if (sender === trueButton &&  correctAnswer == "True") || (sender === falseButton && correctAnswer == "False") {
+        if (sender === firstAnswerButton &&  correctAnswer == "1") || (sender === secondAnswerButton && correctAnswer == "2") || (sender === thirdAnswerButton && correctAnswer == "3" || sender === fourthAnswerButton && correctAnswer == "4") {
             trivia.correctQuestions += 1
             questionField.text = "Correct!"
         } else {
@@ -82,8 +97,7 @@ class ViewController: UIViewController {
     
     @IBAction func playAgain() {
         // Show the answer buttons
-        trueButton.hidden = false
-        falseButton.hidden = false
+        showOrHideAnswerButtons(false)
         
         trivia.questionsAsked = 0
         trivia.correctQuestions = 0
