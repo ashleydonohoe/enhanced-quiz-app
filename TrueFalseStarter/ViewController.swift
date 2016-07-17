@@ -36,8 +36,8 @@ class ViewController: UIViewController {
     }
     
     func displayQuestion() {
-        let questionDictionary: [String: String] = trivia.getRandomQuestion()
-        questionField.text = questionDictionary["Question"]
+        let questionDictionary: [String: AnyObject] = trivia.getRandomQuestion()
+        questionField.text = questionDictionary["Question"] as? String
         playAgainButton.hidden = true
     }
     
@@ -58,7 +58,7 @@ class ViewController: UIViewController {
         trivia.questionsAsked += 1
         
         let selectedQuestionDict = trivia.QuestionData[trivia.indexOfSelectedQuestion]
-        let correctAnswer = selectedQuestionDict["Answer"]
+        let correctAnswer = selectedQuestionDict["Answer"] as! String
         
         if (sender === trueButton &&  correctAnswer == "True") || (sender === falseButton && correctAnswer == "False") {
             trivia.correctQuestions += 1
