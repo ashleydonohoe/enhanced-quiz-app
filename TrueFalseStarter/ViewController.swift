@@ -12,19 +12,9 @@ import AudioToolbox
 
 class ViewController: UIViewController {
     
-    let questionsPerRound = 4
-    var questionsAsked = 0
-    var correctQuestions = 0
-    var indexOfSelectedQuestion: Int = 0
+    let trivia = QuestionModel()
     
     var gameSound: SystemSoundID = 0
-    
-    let trivia: [[String : String]] = [
-        ["Question": "Only female koalas can whistle", "Answer": "False"],
-        ["Question": "Blue whales are technically whales", "Answer": "True"],
-        ["Question": "Camels are cannibalistic", "Answer": "False"],
-        ["Question": "All ducks are birds", "Answer": "True"]
-    ]
     
     @IBOutlet weak var questionField: UILabel!
     @IBOutlet weak var trueButton: UIButton!
@@ -46,8 +36,7 @@ class ViewController: UIViewController {
     }
     
     func displayQuestion() {
-        indexOfSelectedQuestion = GKRandomSource.sharedRandom().nextIntWithUpperBound(trivia.count)
-        let questionDictionary = trivia[indexOfSelectedQuestion]
+        let questionDictionary: [String: String] = trivia.getRandomQuestion()
         questionField.text = questionDictionary["Question"]
         playAgainButton.hidden = true
     }
@@ -60,19 +49,19 @@ class ViewController: UIViewController {
         // Display play again button
         playAgainButton.hidden = false
         
-        questionField.text = "Way to go!\nYou got \(correctQuestions) out of \(questionsPerRound) correct!"
+        questionField.text = "Way to go!\nYou got \(trivia.correctQuestions) out of \(trivia.questionsPerRound) correct!"
         
     }
     
     @IBAction func checkAnswer(sender: UIButton) {
         // Increment the questions asked counter
-        questionsAsked += 1
+        trivia.questionsAsked += 1
         
-        let selectedQuestionDict = trivia[indexOfSelectedQuestion]
+        let selectedQuestionDict = trivia.QuestionData[indexOfSelectedQuestion]
         let correctAnswer = selectedQuestionDict["Answer"]
         
         if (sender === trueButton &&  correctAnswer == "True") || (sender === falseButton && correctAnswer == "False") {
-            correctQuestions += 1
+            trivia.correctQuestions += 1
             questionField.text = "Correct!"
         } else {
             questionField.text = "Sorry, wrong answer!"
@@ -82,7 +71,7 @@ class ViewController: UIViewController {
     }
     
     func nextRound() {
-        if questionsAsked == questionsPerRound {
+        if trivia.questionsAsked == trivia.questionsPerRound {
             // Game is over
             displayScore()
         } else {
@@ -96,8 +85,8 @@ class ViewController: UIViewController {
         trueButton.hidden = false
         falseButton.hidden = false
         
-        questionsAsked = 0
-        correctQuestions = 0
+        trivia.questionsAsked = 0
+        trivia.correctQuestions = 0
         nextRound()
     }
     
