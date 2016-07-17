@@ -103,6 +103,21 @@
                                     <action selector="checkAnswer:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4eX-wM-ARi"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NWw-6Z-Tca">
+                                <rect key="frame" x="40" y="496" width="520" height="50"/>
+                                <color key="backgroundColor" red="0.0" green="0.57647058819999997" blue="0.52941176469999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="coD-hT-S3C"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="xP7-xK-gNs"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Next Question"/>
+                                <connections>
+                                    <action selector="playAgain" destination="BYZ-38-t0r" eventType="touchUpInside" id="KDe-Oo-vLz"/>
+                                    <action selector="showNextQuestion:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cQ2-z1-dL0"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.031372549019607843" green="0.16862745098039217" blue="0.24313725490196078" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -126,11 +141,14 @@
                             <constraint firstItem="AS4-HX-g9f" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="YjQ-Cq-Z1c"/>
                             <constraint firstItem="hOb-gP-ctM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="aVR-Ji-2oO"/>
                             <constraint firstAttribute="trailingMargin" secondItem="AS4-HX-g9f" secondAttribute="trailing" constant="131" id="dOE-K0-AbS"/>
+                            <constraint firstItem="NWw-6Z-Tca" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="egC-gN-Zy1"/>
                             <constraint firstAttribute="trailingMargin" secondItem="hOb-gP-ctM" secondAttribute="trailing" constant="20" id="gSZ-bl-bcx"/>
                             <constraint firstItem="K17-uy-MvB" firstAttribute="top" secondItem="hOb-gP-ctM" secondAttribute="bottom" constant="33" id="hKl-Zf-2td"/>
                             <constraint firstItem="hOb-gP-ctM" firstAttribute="top" secondItem="g2A-m9-gfm" secondAttribute="bottom" constant="21" id="ha7-Id-SNU"/>
+                            <constraint firstItem="NWw-6Z-Tca" firstAttribute="top" secondItem="hOb-gP-ctM" secondAttribute="bottom" constant="33" id="jIA-Bw-vI1"/>
                             <constraint firstItem="AS4-HX-g9f" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="nxr-FM-x4o"/>
                             <constraint firstItem="J1V-MS-ECi" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="poV-j9-i0R"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="NWw-6Z-Tca" secondAttribute="trailing" constant="20" id="pym-fG-l2M"/>
                             <constraint firstItem="J1V-MS-ECi" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="rUh-eo-qTV"/>
                             <constraint firstItem="J1V-MS-ECi" firstAttribute="top" secondItem="I3V-ih-1Ky" secondAttribute="bottom" constant="108.5" id="trk-pV-sSs"/>
                             <constraint firstItem="g2A-m9-gfm" firstAttribute="top" secondItem="AS4-HX-g9f" secondAttribute="bottom" constant="17" id="wXX-cT-1Oe"/>
@@ -154,6 +172,7 @@
                     <connections>
                         <outlet property="firstAnswerButton" destination="J1V-MS-ECi" id="Tle-tk-s55"/>
                         <outlet property="fourthAnswerButton" destination="hOb-gP-ctM" id="DeT-HK-1Oy"/>
+                        <outlet property="nextQuestionButton" destination="NWw-6Z-Tca" id="fjb-wh-hhO"/>
                         <outlet property="playAgainButton" destination="K17-uy-MvB" id="0Bx-Cm-ye0"/>
                         <outlet property="questionField" destination="I3V-ih-1Ky" id="7UI-o2-ATi"/>
                         <outlet property="secondAnswerButton" destination="AS4-HX-g9f" id="fnI-cY-z9G"/>
