@@ -57,7 +57,7 @@ class ViewController: UIViewController {
         // Increment the questions asked counter
         trivia.questionsAsked += 1
         
-        let selectedQuestionDict = trivia.QuestionData[indexOfSelectedQuestion]
+        let selectedQuestionDict = trivia.QuestionData[trivia.indexOfSelectedQuestion]
         let correctAnswer = selectedQuestionDict["Answer"]
         
         if (sender === trueButton &&  correctAnswer == "True") || (sender === falseButton && correctAnswer == "False") {
