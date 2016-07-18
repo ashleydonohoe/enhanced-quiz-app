@@ -80,7 +80,6 @@ class ViewController: UIViewController {
         
         let selectedQuestionDict = trivia.QuestionData[trivia.indexOfSelectedQuestion]
         let correctAnswer = selectedQuestionDict["Answer"] as! String
-        print(correctAnswer)
         let answers = selectedQuestionDict["Options"] as! NSArray
         let answerText = answers[Int(correctAnswer)!]
         
