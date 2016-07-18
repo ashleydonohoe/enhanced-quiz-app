@@ -39,6 +39,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func askNextQuestion(sender: UIButton) {
+        nextQuestionButton.hidden = true
         displayQuestion()
     }
     
@@ -79,12 +80,15 @@ class ViewController: UIViewController {
         
         let selectedQuestionDict = trivia.QuestionData[trivia.indexOfSelectedQuestion]
         let correctAnswer = selectedQuestionDict["Answer"] as! String
+        print(correctAnswer)
+        let answers = selectedQuestionDict["Options"] as! NSArray
+        let answerText = answers[Int(correctAnswer)!]
         
-        if (sender === firstAnswerButton &&  correctAnswer == "1") || (sender === secondAnswerButton && correctAnswer == "2") || (sender === thirdAnswerButton && correctAnswer == "3" || sender === fourthAnswerButton && correctAnswer == "4") {
+        if (sender === firstAnswerButton &&  correctAnswer == "0") || (sender === secondAnswerButton && correctAnswer == "1") || (sender === thirdAnswerButton && correctAnswer == "2" || sender === fourthAnswerButton && correctAnswer == "3") {
             trivia.correctQuestions += 1
             questionField.text = "Correct!"
         } else {
-            questionField.text = "Sorry, wrong answer!"
+            questionField.text = "Sorry, wrong answer! The correct answer is \(answerText)"
         }
         
         loadNextRoundWithDelay(seconds: 2)
@@ -94,15 +98,22 @@ class ViewController: UIViewController {
         if trivia.questionsAsked == trivia.questionsPerRound {
             // Game is over
             displayScore()
+            nextQuestionButton.hidden = true
         } else {
             // Continue game
-            nextQuestionButton.hidden = false
+            if trivia.questionsAsked > 0 {
+                nextQuestionButton.hidden = false
+            } else {
+                displayQuestion()
+            }
         }
     }
     
     @IBAction func playAgain() {
         // Show the answer buttons
         showOrHideAnswerButtons(false)
+        playAgainButton.hidden = true
+        nextQuestionButton.hidden = true
         
         trivia.questionsAsked = 0
         trivia.correctQuestions = 0
