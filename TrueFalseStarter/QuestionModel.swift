@@ -15,11 +15,12 @@ class QuestionModel {
     var questionsAsked = 0
     var correctQuestions = 0
     
+    
     let QuestionData: [[String : AnyObject]] = [
-        ["Question": "How do you say 'Hello' in German?", "Options": ["Hola", "Hallo", "Hei", "Auf wiedersehen"], "Answer": "1"],
-        ["Question": "How do you say 'Goodbye' in French?", "Options": ["Hasta luego!", "De rien", "Au revoir", "Guten abend"], "Answer": "2"],
-        ["Question": "What is the Spanish word for 'time'?", "Options": ["Tiempo", "Tielo", "Zeit", "Tiemps"], "Answer": "0"],
-        ["Question": "What is the Danish word for 'woman'?", "Options": ["Mujer", "Frau", "L'homme", "Kvinde"], "Answer": "3"]
+        ["Question": "How do you say 'Hello' in German?,", "Options": ["Hola", "Hallo", "Hei", "Auf wiedersehen"], "Answer": "2"],
+        ["Question": "How do you say 'Goodbye' in French?", "Options": ["Hasta luego!", "De rien", "Au revoir", "Guten abend"], "Answer": "3"],
+        ["Question": "What is the Spanish word for 'time'?", "Options": ["Tiempo", "Tielo", "Zeit", "Tiemps"], "Answer": "1"],
+        ["Question": "What is the Danish word for 'woman'?", "Options": ["Mujer", "Frau", "L'homme", "Kvinde"], "Answer": "4"]
     ]
     
     func getRandomQuestion() -> [String: AnyObject] {
