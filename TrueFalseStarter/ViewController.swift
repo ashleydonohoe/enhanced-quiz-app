@@ -86,8 +86,10 @@ class ViewController: UIViewController {
         if (sender === firstAnswerButton &&  correctAnswer == "0") || (sender === secondAnswerButton && correctAnswer == "1") || (sender === thirdAnswerButton && correctAnswer == "2" || sender === fourthAnswerButton && correctAnswer == "3") {
             trivia.correctQuestions += 1
             questionField.text = "Correct!"
+            winningStartSound()
         } else {
             questionField.text = "Sorry, wrong answer! The correct answer is \(answerText)"
+            losingStartSound()
         }
         
         loadNextRoundWithDelay(seconds: 2)
@@ -143,5 +145,22 @@ class ViewController: UIViewController {
     
     func playGameStartSound() {
         AudioServicesPlaySystemSound(gameSound)
+    }
+    
+    func winningStartSound() {
+        let pathToSoundFile = NSBundle.mainBundle().pathForResource("winning", ofType: "mp3")
+        var mySound: SystemSoundID = 0
+        let soundURL = NSURL(fileURLWithPath: pathToSoundFile!)
+        AudioServicesCreateSystemSoundID(soundURL, &mySound)
+        AudioServicesPlaySystemSound(mySound)
+    }
+    
+    func losingStartSound() {
+        let pathToSoundFile = NSBundle.mainBundle().pathForResource("losing", ofType: "mp3")
+        var mySound2: SystemSoundID = 0
+        let soundURL = NSURL(fileURLWithPath: pathToSoundFile!)
+        AudioServicesCreateSystemSoundID(soundURL, &mySound2)
+        AudioServicesPlaySystemSound(mySound2)
+        
     }
 }
