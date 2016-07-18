@@ -37,11 +37,13 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
     @IBAction func askNextQuestion(sender: UIButton) {
-        
+        displayQuestion()
     }
     
     func displayQuestion() {
+        nextQuestionButton.hidden = true
         let questionDictionary: [String: AnyObject] = trivia.getRandomQuestion()
         questionField.text = questionDictionary["Question"] as? String
         let answers = questionDictionary["Options"] as! NSArray
@@ -94,7 +96,7 @@ class ViewController: UIViewController {
             displayScore()
         } else {
             // Continue game
-            displayQuestion()
+            nextQuestionButton.hidden = false
         }
     }
     

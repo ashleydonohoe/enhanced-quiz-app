@@ -140,6 +140,7 @@
                             <constraint firstItem="g2A-m9-gfm" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="Xhr-tx-bmR"/>
                             <constraint firstItem="I3V-ih-1Ky" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="Yg4-qe-Tx5"/>
                             <constraint firstItem="AS4-HX-g9f" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="YjQ-Cq-Z1c"/>
+                            <constraint firstItem="dnV-C9-AiS" firstAttribute="top" secondItem="hOb-gP-ctM" secondAttribute="bottom" constant="33" id="ZSi-g1-hBB"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="dnV-C9-AiS" secondAttribute="bottom" constant="54" id="aAK-Lo-lhl"/>
                             <constraint firstItem="hOb-gP-ctM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="aVR-Ji-2oO"/>
                             <constraint firstAttribute="trailingMargin" secondItem="AS4-HX-g9f" secondAttribute="trailing" constant="131" id="dOE-K0-AbS"/>
@@ -164,6 +165,7 @@
                                 <exclude reference="dOE-K0-AbS"/>
                                 <exclude reference="BKm-zS-j8U"/>
                                 <exclude reference="hKl-Zf-2td"/>
+                                <exclude reference="aAK-Lo-lhl"/>
                             </mask>
                         </variation>
                     </view>
