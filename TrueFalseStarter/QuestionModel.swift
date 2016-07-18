@@ -44,8 +44,6 @@ class QuestionModel {
             while questionsUsed.contains(indexOfSelectedQuestion) {
                indexOfSelectedQuestion = GKRandomSource.sharedRandom().nextIntWithUpperBound(QuestionData.count)
             }
-            
-            print("finally escaped with \(indexOfSelectedQuestion)")
         }
         
         return QuestionData[indexOfSelectedQuestion]
