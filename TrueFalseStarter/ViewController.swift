@@ -118,6 +118,7 @@ class ViewController: UIViewController {
         
         trivia.questionsAsked = 0
         trivia.correctQuestions = 0
+        trivia.questionsUsed = []
         nextRound()
     }
     
