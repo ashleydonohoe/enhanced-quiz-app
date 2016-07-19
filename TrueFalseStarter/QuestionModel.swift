@@ -15,6 +15,7 @@ class QuestionModel {
     var questionsAsked = 0
     var correctQuestions = 0
     var questionsUsed = [Int]()
+
     
     
     let QuestionData: [[String : AnyObject]] = [
@@ -28,7 +29,6 @@ class QuestionModel {
         ["Question": "What is the Spanish word for 'sorry'?", "Options": ["Scusi", "Sorry", "Tak", "Perdon"], "Answer": "3"],
         ["Question": "What is the German word for 'today'?", "Options": ["Morgen", "Heute", "Hoy", "I Dag"], "Answer": "1"],
         ["Question": "What is the Dutch word for car?", "Options": ["Carro", "Coche", "Auto", "Vagone"], "Answer": "2"],
-     
     ]
     
     func getRandomQuestion() -> [String: AnyObject] {
