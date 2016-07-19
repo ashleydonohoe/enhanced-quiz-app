@@ -98,8 +98,8 @@ class ViewController: UIViewController {
     func nextRound() {
         if trivia.questionsAsked == trivia.questionsPerRound {
             // Game is over
-            displayScore()
             nextQuestionButton.hidden = true
+            displayScore()
         } else {
             // Continue game
             if trivia.questionsAsked > 0 {
