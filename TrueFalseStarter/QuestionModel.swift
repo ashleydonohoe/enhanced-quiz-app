@@ -31,22 +31,22 @@ class QuestionModel {
         ["Question": "What is the Dutch word for car?", "Options": ["Carro", "Coche", "Auto", "Vagone"], "Answer": "2"],
     ]
     
-    func getRandomQuestion() -> [String: AnyObject] {
+    func getRandomQuestion() -> Question {
         // If the array of questions used is empty, go ahead and grab a random index and add it to the array
         
         if questionsUsed.count == 0 {
-            indexOfSelectedQuestion = GKRandomSource.sharedRandom().nextIntWithUpperBound(QuestionData.count)
+            indexOfSelectedQuestion = GKRandomSource.sharedRandom().nextIntWithUpperBound(questions.count)
             questionsUsed.append(indexOfSelectedQuestion)
         } else {
         // Else, grab a random index, check if it's in the array. If it is, try again, else go ahead and use it and add it to the array
-            indexOfSelectedQuestion = GKRandomSource.sharedRandom().nextIntWithUpperBound(QuestionData.count)
+            indexOfSelectedQuestion = GKRandomSource.sharedRandom().nextIntWithUpperBound(questions.count)
             
             while questionsUsed.contains(indexOfSelectedQuestion) {
-               indexOfSelectedQuestion = GKRandomSource.sharedRandom().nextIntWithUpperBound(QuestionData.count)
+               indexOfSelectedQuestion = GKRandomSource.sharedRandom().nextIntWithUpperBound(questions.count)
             }
         }
         
-        return QuestionData[indexOfSelectedQuestion]
+        return questions[indexOfSelectedQuestion]
     }
     
 }
