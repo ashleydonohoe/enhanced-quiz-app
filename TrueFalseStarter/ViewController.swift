@@ -45,13 +45,13 @@ class ViewController: UIViewController {
     
     func displayQuestion() {
         nextQuestionButton.hidden = true
-        let questionDictionary: [String: AnyObject] = trivia.getRandomQuestion()
-        questionField.text = questionDictionary["Question"] as? String
-        let answers = questionDictionary["Options"] as! NSArray
-        firstAnswerButton.setTitle(answers[0] as? String, forState: .Normal)
-        secondAnswerButton.setTitle(answers[1] as? String, forState: .Normal)
-        thirdAnswerButton.setTitle(answers[2] as? String, forState: .Normal)
-        fourthAnswerButton.setTitle(answers[3] as? String, forState: .Normal)
+        let questionDictionary: Question = trivia.getRandomQuestion()
+        questionField.text = questionDictionary.question
+        let answers = questionDictionary.options
+        firstAnswerButton.setTitle(answers[0], forState: .Normal)
+        secondAnswerButton.setTitle(answers[1], forState: .Normal)
+        thirdAnswerButton.setTitle(answers[2], forState: .Normal)
+        fourthAnswerButton.setTitle(answers[3], forState: .Normal)
         trivia.questionsAsked += 1
         playAgainButton.hidden = true
     }
@@ -78,9 +78,9 @@ class ViewController: UIViewController {
     @IBAction func checkAnswer(sender: UIButton) {
         // Increment the questions asked counter
         
-        let selectedQuestionDict = trivia.QuestionData[trivia.indexOfSelectedQuestion]
-        let correctAnswer = selectedQuestionDict["Answer"] as! String
-        let answers = selectedQuestionDict["Options"] as! NSArray
+        let selectedQuestionDict =  questions[trivia.indexOfSelectedQuestion]
+        let correctAnswer = selectedQuestionDict.answer
+        let answers = selectedQuestionDict.options
         let answerText = answers[Int(correctAnswer)!]
         
         if (sender === firstAnswerButton &&  correctAnswer == "0") || (sender === secondAnswerButton && correctAnswer == "1") || (sender === thirdAnswerButton && correctAnswer == "2" || sender === fourthAnswerButton && correctAnswer == "3") {
@@ -150,7 +150,7 @@ class ViewController: UIViewController {
     
     func winningStartSound() {
         let pathToSoundFile = NSBundle.mainBundle().pathForResource("winning", ofType: "mp3")
-        var mySound: SystemSoundID = 0
+        var mySound: SystemSoundID = gameSound
         let soundURL = NSURL(fileURLWithPath: pathToSoundFile!)
         AudioServicesCreateSystemSoundID(soundURL, &mySound)
         AudioServicesPlaySystemSound(mySound)
@@ -158,7 +158,7 @@ class ViewController: UIViewController {
     
     func losingStartSound() {
         let pathToSoundFile = NSBundle.mainBundle().pathForResource("losing", ofType: "mp3")
-        var mySound2: SystemSoundID = 0
+        var mySound2: SystemSoundID = gameSound
         let soundURL = NSURL(fileURLWithPath: pathToSoundFile!)
         AudioServicesCreateSystemSoundID(soundURL, &mySound2)
         AudioServicesPlaySystemSound(mySound2)
