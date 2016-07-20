@@ -38,11 +38,13 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    // action for Next Question button
     @IBAction func askNextQuestion(sender: UIButton) {
         nextQuestionButton.hidden = true
         displayQuestion()
     }
     
+    // Hides the next question button and shows the answer options for current question
     func displayQuestion() {
         nextQuestionButton.hidden = true
         let questionDictionary: Question = trivia.getRandomQuestion()
@@ -148,6 +150,7 @@ class ViewController: UIViewController {
         AudioServicesPlaySystemSound(gameSound)
     }
     
+    // Plays sound when user gets a question right
     func winningStartSound() {
         let pathToSoundFile = NSBundle.mainBundle().pathForResource("winning", ofType: "mp3")
         var mySound: SystemSoundID = gameSound
@@ -156,6 +159,7 @@ class ViewController: UIViewController {
         AudioServicesPlaySystemSound(mySound)
     }
     
+    // Plays sound when user gets a question wrong
     func losingStartSound() {
         let pathToSoundFile = NSBundle.mainBundle().pathForResource("losing", ofType: "mp3")
         var mySound2: SystemSoundID = gameSound

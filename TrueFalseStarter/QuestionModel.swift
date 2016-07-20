@@ -17,23 +17,8 @@ class QuestionModel {
     var questionsUsed = [Int]()
 
     
-    
-//    let QuestionData: [[String : AnyObject]] = [
-//        ["Question": "How do you say 'Hello' in German?", "Options": ["Hola", "Hallo", "Hei", "Auf wiedersehen"], "Answer": "1"],
-//        ["Question": "How do you say 'Goodbye' in French?", "Options": ["Hasta luego!", "De rien", "Au revoir", "Guten abend"], "Answer": "2"],
-//        ["Question": "What is the Spanish word for 'time'?", "Options": ["Tiempo", "Tielo", "Zeit", "Tiemps"], "Answer": "0"],
-//        ["Question": "What is the Danish word for 'woman'?", "Options": ["Mujer", "Frau", "L'homme", "Kvinde"], "Answer": "3"],
-//        ["Question": "What is the Dutch word for 'morning'?", "Options": ["Morn", "Morgen", "Frühling", "Primavera"], "Answer": "1"],
-//        ["Question": "What is the Italian word for 'bread'?", "Options": ["Pan", "Brot", "Pane", "Leche"], "Answer": "2"],
-//        ["Question": "What is the Swedish word for 'ball'?", "Options": ["Boll", "Ball", "Ballen", "Pima"], "Answer": "0"],
-//        ["Question": "What is the Spanish word for 'sorry'?", "Options": ["Scusi", "Sorry", "Tak", "Perdon"], "Answer": "3"],
-//        ["Question": "What is the German word for 'today'?", "Options": ["Morgen", "Heute", "Hoy", "I Dag"], "Answer": "1"],
-//        ["Question": "What is the Dutch word for car?", "Options": ["Carro", "Coche", "Auto", "Vagone"], "Answer": "2"],
-//    ]
-    
     func getRandomQuestion() -> Question {
         // If the array of questions used is empty, go ahead and grab a random index and add it to the array
-        
         if questionsUsed.count == 0 {
             indexOfSelectedQuestion = GKRandomSource.sharedRandom().nextIntWithUpperBound(questions.count)
             questionsUsed.append(indexOfSelectedQuestion)
