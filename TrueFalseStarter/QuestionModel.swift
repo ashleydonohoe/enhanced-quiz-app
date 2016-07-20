@@ -32,8 +32,6 @@ class QuestionModel {
             questionsUsed.append(indexOfSelectedQuestion)
         }
         
-        print(questionsUsed)
-        
         return questions[indexOfSelectedQuestion]
     }
     
